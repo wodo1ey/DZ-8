@@ -1,0 +1,27 @@
+#include "pt4.h"
+using namespace std;
+
+void Solve()
+{
+    Task("DArray10");
+    int n;
+    pt >> n;
+	int* mas = new int[n * n];
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			pt >> *(mas + i * n + j);
+		}
+	}
+	int min = *(mas + 0 + 0);
+	if (min > *(mas + 0 + (n - 1))) min = *(mas + 0 + (n - 1));
+	if (min > *(mas + (n - 1) * n + 0)) min = *(mas + (n - 1) * n + 0);
+	if (min > *(mas + (n - 1) * n + (n - 1))) min = *(mas + (n - 1) * n + (n - 1));
+	int max = *(mas + 0 + 1);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; (j + 1 + i) < n; j++) {
+			if (*(mas + i * n + (j + 1 + i)) > max) max = *(mas + i * n + (j + 1 + i));
+		}
+	}
+	pt << max;
+	pt << min;
+}
