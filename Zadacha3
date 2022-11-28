@@ -1,3 +1,5 @@
+//Написать программу для вычитания двух длинных целых чисел  
+
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
